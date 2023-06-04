@@ -23,6 +23,6 @@ const webhookExecutor = new WebhookExecutor();
 const logExecutor = new PaymentLogExecutor();
 
 const worker = new PaymentProcessorWorker(wallet.address);
-//worker.addExecutor(webhookExecutor);
+worker.addExecutor(webhookExecutor);
 worker.addExecutor(logExecutor);
 worker.start();
