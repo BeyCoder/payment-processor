@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "declaration": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "strictPropertyInitialization": false,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "baseUrl": "./src"
+  },
+  "ts-node": {
+    "esm": true
+  },
+  "lib": ["es2022", "esnext.bigint"],
+  "include": ["./src"],
+  "exclude": ["node_modules/**"],
+  "typeRoots": ["./node_modules/@types"]
+}
