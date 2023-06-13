@@ -39,8 +39,10 @@ export class PaymentProcessorWorker extends Worker{
             let tries = this.maxTries;
             while (tries > 0) {
                 try {
-                    const payment = await Payment.create(transaction, this.blockchain);
-                    await this.callExecutors(payment);
+                    if(transaction.out_msgs.length == 0) {
+                        const payment = await Payment.create(transaction, this.blockchain);
+                        await this.callExecutors(payment);
+                    }
                     tries = 0;
                 } catch (e) {
                     Logger.error("Transaction: " + transaction.hash);

@@ -38,7 +38,14 @@ export class WebhookExecutor extends Executor<Payment>{
 
     private prepareWebhookData(payment: Payment) {
         return {
-            payment: payment
+            payment: {
+                jetton_address: payment.jetton_address?.toRawString(),
+                hash: payment.hash,
+                time: payment.time.getTime() / 1000,
+                who: payment.who.toString(),
+                amount: payment.amount,
+                comment: payment.comment,
+            }
         };
     }
 }

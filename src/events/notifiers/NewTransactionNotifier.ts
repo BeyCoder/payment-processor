@@ -51,7 +51,6 @@ export class NewTransactionNotifier {
     );
 
     fetcher.fetchTransactions(100).then(async (transactions) => {
-      let save_needed = false;
       for (const transaction of transactions.reverse()) {
         let found: boolean = true;
 
@@ -66,21 +65,17 @@ export class NewTransactionNotifier {
         }
 
         if (!found) {
-          if(transaction.in_msg || transaction.out_msgs.length > 0) {
-            this.log("Triggering transaction " + transaction.hash + " ...");
-            setTimeout(() => {
-              this.listener.trigger(transaction);
-              this.last -= this.timeout;
-            }, this.last);
-            this.last += this.timeout;
-          }
+          this.log("Triggering transaction " + transaction.hash + " ...");
+          setTimeout(() => {
+            this.listener.trigger(transaction);
+            this.last -= this.timeout;
+          }, this.last);
+          this.last += this.timeout;
 
           this.db.push("/" + this.id + "[]", { id: transaction.hash });
-          save_needed = true;
         }
       }
 
-      if(save_needed) this.db.save()
       this.log("Fetching completed!");
     }).catch((i) => console.error('Error', i));
   }
