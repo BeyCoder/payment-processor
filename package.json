@@ -1,5 +1,5 @@
 {
-  "name": "fck-indexer",
+  "name": "fck-payment-processor",
   "type": "module",
   "version": "0.0.1",
   "description": "Indexer for analytics tool",
@@ -10,10 +10,10 @@
     "tsc": "tsc -p tsconfig.json",
     "test": "tsc & node dist/app.js"
   },
-  "author": "FCK Foundation",
+  "author": "FCK Team",
   "license": "ISC",
   "dependencies": {
-    "@fck-foundation/ton": "^0.0.54",
+    "@fck-foundation/ton": "^0.1.2",
     "@fck-foundation/tonweb-ts": "^0.0.2",
     "node-json-db": "^2.1.5"
   },

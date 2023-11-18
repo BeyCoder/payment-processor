@@ -7,7 +7,6 @@ import {
     BlockchainNetwork,
     Wallet,
     Blockchain,
-    JettonTransferNotificationAction
 } from "@fck-foundation/ton";
 import {Executor} from "../executors/Executor.js";
 import {Payment} from "../Payment.js";

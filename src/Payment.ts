@@ -23,8 +23,8 @@ export class Payment {
         let sender = transaction.in_msg?.source;
         let amount = Number(transaction.in_msg?.value);
         let jetton_address;
-        if (transaction.in_msg?._action instanceof JettonTransferNotificationAction) {
-            sender = transaction.in_msg._action.sender;
+        if (transaction.in_msg?.action instanceof JettonTransferNotificationAction) {
+            sender = transaction.in_msg.action.sender;
 
             //TODO: be avoid from god object, jetton parsing must be in other class
             const jetton_wallet_address = transaction.in_msg.source.address;
@@ -34,7 +34,7 @@ export class Payment {
             let balance = get_wallet_data.stack.readNumber();
             let owner = get_wallet_data.stack.readAddress();
             jetton_address = get_wallet_data.stack.readAddress();
-            amount = Number(transaction.in_msg._action.amount);
+            amount = Number(transaction.in_msg.action.amount);
         }
 
         if(sender)

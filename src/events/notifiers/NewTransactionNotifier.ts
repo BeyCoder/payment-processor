@@ -3,10 +3,8 @@ import { EventListener } from "../EventListener.js";
 import { Account } from "@fck-foundation/ton/dist/blockchain/wallets/Account";
 import { JsonDB, Config } from "node-json-db";
 import {
-  TonCatTransactionFetcher,
-  TonwebJettonTransactionFetcher,
+  TransactionFetcher,
 } from "@fck-foundation/ton";
-import { randomUUID } from "crypto";
 import { Blockchain } from "@fck-foundation/ton/dist/blockchain/Blockchain.js";
 import { config } from "@fck-foundation/ton/dist/config.js";
 
@@ -45,7 +43,7 @@ export class NewTransactionNotifier {
 
   update() {
     this.log("Fetching...");
-    const fetcher = new TonwebJettonTransactionFetcher(
+    const fetcher = new TransactionFetcher(
       this.account,
       this.blockchain
     );

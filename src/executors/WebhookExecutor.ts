@@ -28,7 +28,7 @@ export class WebhookExecutor extends Executor<Payment>{
 
     async execute(data: Payment): Promise<void> {
         const request_data = this.prepareWebhookData(data);
-        return axios.post(this.webhook_uri, request_data, {
+        const resp = await axios.post(this.webhook_uri, request_data, {
             headers: {
                 Authorization: "Bearer " + this.webhook_token,
                 Accept: "application/json"
