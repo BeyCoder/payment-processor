@@ -7,7 +7,7 @@
 
 ## Common setup
 
-Clone the repo and install the dependencies. DON"T FORGET TO SETUP .env CONFIG!
+Clone the repo and install the dependencies. KEEP IN MIND TO SETUP .env!
 
 ```bash
 git clone git@github.com:fck-foundation/payment-processor.git
